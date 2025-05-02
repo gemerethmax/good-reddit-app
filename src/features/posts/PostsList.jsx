@@ -1,0 +1,26 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { postRemoved } from './postsSlice';
+import { selectAllPosts } from './postsSlice';
+
+export const PostsList = () => {
+    const posts = useSelector(selectAllPosts);
+    const dispatch = useDispatch();
+
+    const content = posts.map((post) => ( 
+        <article key={post.id}>
+            <h3>{post.title}</h3>
+            <p>{post.content}</p>
+            <img src={post.image} alt={post.title} />
+            <p>Author:{post.auhtor}</p>
+            <button onClick={() => dispatch(postRemoved(post.id))}>Remove</button>
+        </article>  
+))
+
+    return (
+        <section>
+            <h2>POSTS</h2>
+            {content}
+        </section>
+    )
+
+}
