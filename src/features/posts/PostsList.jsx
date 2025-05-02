@@ -11,7 +11,7 @@ export const PostsList = () => {
             <h3>{post.title}</h3>
             <p>{post.content}</p>
             <img src={post.image} alt={post.title} />
-            <p>Author:{post.auhtor}</p>
+            <p>Author:{post.author}</p>
             <button onClick={() => dispatch(postRemoved(post.id))}>Remove</button>
         </article>  
 ))
