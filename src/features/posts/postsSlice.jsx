@@ -8,6 +8,7 @@ const initialState = {
         content: 'This is the content of the first post.',
         image: 'https://via.placeholder.com/150',
         author: 'Max Gemereth',
+        votes: 0,
     },
     {
         id: 2,
@@ -15,6 +16,7 @@ const initialState = {
         content: 'This is the content of the second post.',
         image: 'https://via.placeholder.com/150',
         author: 'Bradley Michael',
+        votes: 0,
       },
       {
         id: 3,
@@ -22,6 +24,7 @@ const initialState = {
         content: 'This is the content of the third post.',
         image: 'https://via.placeholder.com/150',
         author: 'Carolina Gemereth',
+        votes: 0,
       }
   ],
   status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
@@ -32,18 +35,22 @@ const postsSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        postAdded: { 
-          reducer(state, action) {
-        state.posts.push(action.payload);
+        voteIncremented: (state, action) => {
+          const post = state.posts.find(post => post.id === action.payload);
+          if (post) {
+            post.votes += 1;
+          }
         },
-      },
-        postRemoved: (state, action) => {
-        state.posts = state.posts.filter(post => post.id !== action.payload);
+        voteDecremented: (state, action) => {
+          const post = state.posts.find(post => post.id === action.payload);
+          if (post) {
+            post.votes -= 1;
+          }
         },
     },
     });
 
-export const { postAdded, postRemoved } = postsSlice.actions;
+export const { voteIncremented, voteDecremented } = postsSlice.actions;
 
 export const selectAllPosts = (state) => state.posts.posts;
 export const getPostsStatus = (state) => state.posts.status;

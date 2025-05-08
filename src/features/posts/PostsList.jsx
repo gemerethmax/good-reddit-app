@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { postRemoved } from './postsSlice';
+import {  voteIncremented, voteDecremented } from './postsSlice';
 import { selectAllPosts } from './postsSlice';
 
 export const PostsList = () => {
@@ -12,7 +12,9 @@ export const PostsList = () => {
             <p>{post.content}</p>
             <img src={post.image} alt={post.title} />
             <p>Author:{post.author}</p>
-            <button onClick={() => dispatch(postRemoved(post.id))}>Remove</button>
+            <button onClick={() => dispatch(voteIncremented(post.id))}>+</button>
+            <p>Votes:{post.votes}</p>
+            <button onClick={() => dispatch(voteDecremented(post.id))}>-</button>
         </article>  
 ))
 
