@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import {  voteIncremented, voteDecremented } from './postsSlice';
 import { selectAllPosts } from './postsSlice';
+import { TimeAgo } from './TimeAgo';
 
 export const PostsList = () => {
     const posts = useSelector(selectAllPosts);
@@ -12,9 +13,12 @@ export const PostsList = () => {
             <p>{post.content}</p>
             <img src={post.image} alt={post.title} />
             <p>Author:{post.author}</p>
+            <TimeAgo timestamp={post.date} />
+            <br />
             <button onClick={() => dispatch(voteIncremented(post.id))}>+</button>
             <p>Votes:{post.votes}</p>
             <button onClick={() => dispatch(voteDecremented(post.id))}>-</button>
+            
         </article>  
 ))
 

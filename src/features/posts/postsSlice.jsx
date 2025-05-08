@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { sub } from 'date-fns';
 
 const initialState = {
   posts: [
@@ -9,6 +10,7 @@ const initialState = {
         image: 'https://via.placeholder.com/150',
         author: 'Max Gemereth',
         votes: 0,
+        date: new Date().toISOString(),
     },
     {
         id: 2,
@@ -17,6 +19,7 @@ const initialState = {
         image: 'https://via.placeholder.com/150',
         author: 'Bradley Michael',
         votes: 0,
+        date: sub(new Date(), { minutes: 5 }).toISOString(),
       },
       {
         id: 3,
@@ -25,6 +28,7 @@ const initialState = {
         image: 'https://via.placeholder.com/150',
         author: 'Carolina Gemereth',
         votes: 0,
+        date: sub(new Date(), { minutes: 10 }).toISOString(),
       }
   ],
   status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
