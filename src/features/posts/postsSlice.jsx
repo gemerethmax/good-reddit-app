@@ -7,21 +7,21 @@ const initialState = {
         title: 'First Post',
         content: 'This is the content of the first post.',
         image: 'https://via.placeholder.com/150',
-        author: 'Max Gemereth'
+        author: 'Max Gemereth',
     },
     {
         id: 2,
         title: 'Second Post',
         content: 'This is the content of the second post.',
         image: 'https://via.placeholder.com/150',
-        author: 'Bradley Michael'
+        author: 'Bradley Michael',
       },
       {
         id: 3,
         title: 'Third Post',
         content: 'This is the content of the third post.',
         image: 'https://via.placeholder.com/150',
-        author: 'Carolina Gemereth'
+        author: 'Carolina Gemereth',
       }
   ],
   status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
@@ -32,9 +32,11 @@ const postsSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        postAdded: (state, action) => {
+        postAdded: { 
+          reducer(state, action) {
         state.posts.push(action.payload);
         },
+      },
         postRemoved: (state, action) => {
         state.posts = state.posts.filter(post => post.id !== action.payload);
         },
