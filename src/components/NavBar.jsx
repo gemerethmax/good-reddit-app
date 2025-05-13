@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
+import redditLogo from '../assets/Reddit_logo.png';
 
 const NavBar = () => {
 
     return(
         <header>
-            <h1>RedditMinimal</h1>
+            <img height="30px" width="30px" src={redditLogo} alt="Reddit Logo"/><h1>RedditMinimal</h1>
             <nav>
                 <ul>
                    <NavLink to="/"><li>Home</li></NavLink>
