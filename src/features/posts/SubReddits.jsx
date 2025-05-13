@@ -1,4 +1,5 @@
-
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export const SubReddits = () => {
 
@@ -13,7 +14,7 @@ export const SubReddits = () => {
 
     const subRedditList = subreddits.map((subreddit) => (
         <article key={subreddit.id}>
-            <h3><a>{subreddit.name}</a></h3>
+            <h3><NavLink to={`/${subreddit.name}`}>{subreddit.name}</NavLink></h3>
         </article>
 
     ))

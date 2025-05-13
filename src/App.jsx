@@ -3,15 +3,17 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import { About } from './components/About'
 import { Contact } from './components/Contact'
 import { RootLayout } from './layout/RootLayout'
-import { Home } from './components/Home'
+import { HomeLayout } from './components/HomeLayout'
 import { NotFound } from './components/NotFound'
+import { SubRedditPage } from './components/SubRedditPage'
 
 const  App = () => {
   
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout />}>
-      <Route index element={<Home />}/> 
+      <Route index element={<HomeLayout />}/>
+      <Route path=":subReddit" element={<SubRedditPage />} />
       <Route path='about' element={<About /> } />
       <Route path='contact' element={<Contact />} />
       <Route path='*' element={<NotFound />} />
