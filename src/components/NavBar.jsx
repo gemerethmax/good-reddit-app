@@ -8,6 +8,8 @@ const NavBar = () => {
             <nav>
                 <ul>
                     <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
                 </ul>
                 <label htmlFor="search">Search</label>
                 <input id="search" type="text" placeholder="Search..." />
