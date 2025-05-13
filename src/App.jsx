@@ -4,7 +4,7 @@ import { About } from './components/About'
 import { Contact } from './components/Contact'
 import { RootLayout } from './layout/RootLayout'
 import { Home } from './components/Home'
-
+import { NotFound } from './components/NotFound'
 
 const  App = () => {
   
@@ -14,6 +14,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />}/> 
       <Route path='about' element={<About /> } />
       <Route path='contact' element={<Contact />} />
+      <Route path='*' element={<NotFound />} />
     </Route>
   )
 )
