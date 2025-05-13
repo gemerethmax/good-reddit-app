@@ -1,24 +1,25 @@
 import './App.css'
-import { PostsList } from './features/posts/PostsList'
-import { SubReddits } from './features/posts/SubReddits'
-import NavBar from './components/NavBar'
-import { Routes, Route } from 'react-router-dom'
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 import { About } from './components/About'
 import { Contact } from './components/Contact'
+import { RootLayout } from './layout/RootLayout'
+import { Home } from './components/Home'
+
 
 const  App = () => {
   
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<RootLayout />}>
+      <Route index element={<Home />}/> 
+      <Route path='about' element={<About /> } />
+      <Route path='contact' element={<Contact />} />
+    </Route>
+  )
+)
 
   return (
-        <div>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<PostsList />} />
-
-            <Route path="/about" element={<About /> } />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </div>
+        <RouterProvider router={router} />
       )
 }
 

@@ -1,4 +1,4 @@
-
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
 
@@ -7,9 +7,9 @@ const NavBar = () => {
             <h1>RedditMinimal</h1>
             <nav>
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
+                   <NavLink to="/"><li>Home</li></NavLink>
+                   <NavLink to="/about"><li>About</li></NavLink>
+                   <NavLink to="/contact"><li>Contact</li></NavLink>
                 </ul>
                 <label htmlFor="search">Search</label>
                 <input id="search" type="text" placeholder="Search..." />
