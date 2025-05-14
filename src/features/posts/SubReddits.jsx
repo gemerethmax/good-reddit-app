@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import BengalsLogo from '../../assets/Bengals_logo.png';
-import RedsLogo from '../../assets/Reds_logo.png';
-import ESPNLogo from '../../assets/ESPN_logo.png';
-import NBAPlayoffsLogo from '../../assets/NBA_playoffs_logo.png';
-import NFLDraftLogo from '../../assets/NFL_draft_logo.png';
-import MLBLogo from '../../assets/MLB_logo.png';
+import BengalsLogo from '../../assets/img/Bengals_logo.png';
+import RedsLogo from '../../assets/img/Reds_logo.png';
+import ESPNLogo from '../../assets/img/ESPN_logo.png';
+import NBAPlayoffsLogo from '../../assets/img/NBA_playoffs_logo.png';
+import NFLDraftLogo from '../../assets/img/NFL_draft_logo.png';
+import MLBLogo from '../../assets/img/MLB_logo.png';
 
 export const SubReddits = () => {
 
@@ -19,16 +19,19 @@ export const SubReddits = () => {
     ]
 
     const subRedditList = subreddits.map((subreddit) => (
-        <article key={subreddit.id}>
-           <img class="rounded-full" height="35px" width="35px" src={subreddit.logo} /><h3><NavLink to={`/${subreddit.name}`}>{subreddit.name}</NavLink></h3>
-        </article>
+        <div key={subreddit.id} class="flex hover:opacity-80 transition-opacity duration-150 text-slate-700 bg-gray-200 p-4 rounded-lg shadow-md w-3/5 ">
+            <NavLink to={`/${subreddit.name}`}>
+                <img class="rounded-full h-8 w-10 border-2 border-neutral-500 bg-gray-50"  src={subreddit.logo} />
+                <h3>{subreddit.name}</h3>
+            </NavLink>
+        </div>
 
     ))
 
     return (
-        <section>
-            <h2>SubReddits</h2>
+        <div class="h-200 flex flex-col gap-4 justify-center items-center border-2 border-slate-500 rounded-lg p-4 bg-slate-300 w-1/4 ml-auto mr-auto mt-10 ">               
+            <h2 class="text-3xl text-slate-600">SubReddits</h2>
             {subRedditList}
-        </section>
+        </div>
     )
 }

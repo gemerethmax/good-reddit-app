@@ -14,22 +14,26 @@ export const PostsList = () => {
     
     const content = posts.map((post) => ( 
         <article key={post.id}>
-            <h3>{post.title}</h3>
-            <p>{post.content}</p>
-            <img src={post.image} alt={post.title} />
-            <p>By: {post.author}</p>
-            <TimeAgo timestamp={post.date} />
-            <br />
-            <button onClick={() => dispatch(voteIncremented(post.id))}>+</button>
-            <p>Votes:{post.votes}</p>
-            <button onClick={() => dispatch(voteDecremented(post.id))}>-</button>
-            <CommentsList post={post} />
+            <h3 class="text-2xl mt-10 mb-2">{post.title}</h3>
+            <img src={post.image} alt={post.title} class="h-100 w-170"/>
+            <p class="mt-0.5">By: {post.author} <TimeAgo timestamp={post.date} /> </p>
+            <br/>
+       
+            <div>
+                <button onClick={() => dispatch(voteIncremented(post.id))}>+</button>
+                <p>Votes:{post.votes}</p>
+                <button onClick={() => dispatch(voteDecremented(post.id))}>-</button>
+            </div>
+            <br/>
+            <div>
+                <CommentsList post={post} />
+            </div>
         </article>  
 ))
 
     return (
-        <section>
-            <h2>POSTS</h2>
+        <section class="flex flex-col gap-4 justify-center items-center mt-10">
+            <h2 class="text-4xl">POSTS</h2>
             {content}
         </section>
     )

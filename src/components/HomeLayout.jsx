@@ -5,8 +5,10 @@ import { SubReddits } from "../features/posts/SubReddits"
 export const HomeLayout = () => {
     return (
         <>
-            <PostsList />
-            <SubReddits />
+            <div class="flex">
+                <PostsList />
+                <SubReddits />
+            </div>
                 <Outlet />
         </>
     )
