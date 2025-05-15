@@ -19,9 +19,9 @@ export const PostsList = () => {
             <p class="mt-0.5">By: {post.author} <TimeAgo timestamp={post.date} /> </p>
             <br/>
             <div class="flex gap-2 justify-center items-center border-2 w-1/2 rounded-3xl">
-                <button class="border-2 rounded-3xl hover:cursor-pointer" onClick={() => dispatch(voteIncremented(post.id))}>+</button>
-                <p>Votes:{post.votes}</p>
                 <button class="border-2 rounded-3xl hover:cursor-pointer" onClick={() => dispatch(voteDecremented(post.id))}>-</button>
+                <p>Votes:{post.votes}</p>
+                <button class="border-2 rounded-3xl hover:cursor-pointer" onClick={() => dispatch(voteIncremented(post.id))}>+</button>
             </div>
             <br/>
             <div>
