@@ -7,8 +7,8 @@ const NavBar = () => {
         <header > 
             <nav class="width-full bg-slate-600 p-4">
                 <div class="flex items-center justify-between w-3/4 ml-auto mr-auto">
-                    <div >
-                        <NavLink to="/" class="flex items-center gap-4">
+                    <div>
+                        <NavLink to="/" class="flex-row items-center gap-4">
                             <img class="size-7" src={redditLogo} alt="Reddit Logo"/>
                             <h1 class="text-3xl font-medium hover:opacity-70 transition-opacity duration-150">RedditMinimal</h1>
                         </NavLink>

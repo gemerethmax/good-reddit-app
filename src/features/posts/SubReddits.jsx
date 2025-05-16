@@ -19,8 +19,8 @@ export const SubReddits = () => {
     ]
 
     const subRedditList = subreddits.map((subreddit) => (
-        <div key={subreddit.id} class="flex hover:opacity-80 transition-opacity duration-150 text-slate-700 bg-gray-200 p-4 rounded-lg shadow-md w-3/5 ">
-            <NavLink to={`/${subreddit.name}`} class="flex items-center gap-4">
+        <div key={subreddit.id} class="flex-row hover:opacity-80 transition-opacity duration-150 text-slate-700 bg-gray-200 p-4 rounded-lg shadow-md w-3/5 ">
+            <NavLink to={`/${subreddit.name}`} class=" flex-row gap-">
                 <img class="rounded-full h-8 w-10 border-2 border-neutral-500 bg-gray-50"  src={subreddit.logo} />
                 <h3>{subreddit.name}</h3>
             </NavLink>
