@@ -6,42 +6,18 @@ import MJ from '../../assets/img/MJ.jpg';
 import PR from '../../assets/img/PR.jpeg';
 import JB from '../../assets/img/JB.jpg';
 
-export const POSTS_URL = 'https://www.reddit.com/r/';
+export const POSTS_URL = 'https://www.reddit.com/r/bengals/new.json';
 
 const initialState = {
-  posts: [
-    {
-        id: 1,
-        title: 'Michael Jordan',
-        image: MJ,
-        author: 'Max Gemereth',
-        votes: 0,
-        date: new Date().toISOString(),
-    },
-    {
-        id: 2,
-        title: 'Pete Rose',
-        image: PR,
-        author: 'Bradley Michael',
-        votes: 0,
-        date: sub(new Date(), { minutes: 5 }).toISOString(),
-      },
-      {
-        id: 3,
-        title: 'Joe Burrow',
-        image: JB,
-        author: 'Carolina Gemereth',
-        votes: 0,
-        date: sub(new Date(), { minutes: 10 }).toISOString(),
-      }
-  ],
+  posts: [],
   status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
   error: null,
 };
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const response = await axios.get(POSTS_URL);
-  return response.data;
+  console.log(response.data.data.children); //Example: To get the author of the 5th post it woudld be [4].data.author. There's also title, # of comments, selftext, thumbnail, url to the single comment page
+  return response.data.data.children;
 }
 );
 
@@ -69,7 +45,8 @@ const postsSlice = createSlice({
           })
           .addCase(fetchPosts.fulfilled, (state, action) => {
             state.status = 'succeeded';
-            state.posts = state.posts.concat(action.payload);
+            state.posts = state.posts.concat(action.payload)
+            console.log(state.posts);
           })
           .addCase(fetchPosts.rejected, (state, action) => {
             state.status = 'failed';
