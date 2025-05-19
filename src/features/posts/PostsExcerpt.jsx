@@ -1,12 +1,12 @@
 import React from 'react'
 import { TimeAgo } from './TimeAgo';
 import { CommentsList } from '../comments/CommentsList';
-import { useDispatch } from 'react-redux';
+
 
 
 export const PostsExcerpt = ({ post }) => {
 
-    const dispatch = useDispatch();
+  
 
     
   return (

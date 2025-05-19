@@ -18,7 +18,7 @@ export const PostsList = () => {
     const posts = useSelector(selectAllPosts);
 
     useEffect(() => {
-        if (status === 'idle') {
+        if (status === 'idle' || status === 'done') {
             dispatch(fetchPosts());
         }
     }, [status, dispatch]);
@@ -28,8 +28,8 @@ export const PostsList = () => {
         content = <p className="text-2xl">Loading...</p>
     }
     else if (status === 'succeeded') {
-        // const orderedPosts = posts.slice().sort((a, b) => b.data.created_utc - a.data.created_utc);
-        content = posts.map((post) => (
+        const orderedPosts = posts.slice().sort((a, b) => b.data.created_utc - a.data.created_utc);
+        content = orderedPosts.map((post) => (
             <PostsExcerpt key={post.data.id} post={post} />
         ))
     }
@@ -39,7 +39,7 @@ export const PostsList = () => {
 
     return (
         <section class="flex flex-col gap-4 justify-center items-center mt-10 ml-5 mb-10">
-            <h2 class="text-4xl">POSTS</h2>
+            <h2 class="text-4xl">POPULAR POSTS</h2>
             {content}
         </section>
     )
