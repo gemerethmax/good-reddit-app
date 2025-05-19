@@ -2,12 +2,15 @@
 
 export const Contact = () => {
     return (
-        <>
+        <div class="ml-auto mr-auto mt-10 w-3/4">
             <h1>Contact</h1>
-            <p>If you have any questions, please contact me at:</p>
+            <br />
+             <p>Max Gemereth</p>
             <p>Email: gemereth.max@gmail.com</p>
-            <p>Max Gemereth</p>
-            <p>Phone: 123-456-7890</p>
-        </>
+            <p>Phone: 513-290-6552</p>
+            <p><a href="https://github.com/gemerethmax">Github account</a></p>
+            <p><a href="https://www.linkedin.com/in/max-gemereth/">LinkedIn account</a></p>
+            <p><a>Resumé</a></p>
+        </div>
  )
 }

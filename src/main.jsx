@@ -5,9 +5,6 @@ import App from './App.jsx'
 import { Provider } from 'react-redux'
 import { store }  from './store/store'
 
-import { fetchPosts } from './features/posts/postsSlice.jsx'
-
-store.dispatch(fetchPosts());
 
 createRoot(document.getElementById('root')).render(
   

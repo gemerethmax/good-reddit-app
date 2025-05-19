@@ -1,12 +1,7 @@
-import { createSlice, nanoid, createAsyncThunk } from '@reduxjs/toolkit';
-import { sub } from 'date-fns';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-import MJ from '../../assets/img/MJ.jpg';
-import PR from '../../assets/img/PR.jpeg';
-import JB from '../../assets/img/JB.jpg';
-
-export const POSTS_URL = 'https://www.reddit.com/r/bengals/new.json';
+export const POSTS_URL = 'https://www.reddit.com/r/bengals.json';
 
 const initialState = {
   posts: [],
@@ -46,7 +41,6 @@ const postsSlice = createSlice({
           .addCase(fetchPosts.fulfilled, (state, action) => {
             state.status = 'succeeded';
             state.posts = state.posts.concat(action.payload)
-            console.log(state.posts);
           })
           .addCase(fetchPosts.rejected, (state, action) => {
             state.status = 'failed';

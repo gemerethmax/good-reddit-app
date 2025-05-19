@@ -1,36 +1,41 @@
-import { useSelector, useDispatch } from 'react-redux';
-import {  voteIncremented, voteDecremented, selectAllPosts } from './postsSlice';
-import { TimeAgo } from './TimeAgo';
-import { CommentsList } from '../comments/CommentsList';
-
-
+import { useSelector, useDispatch, } from 'react-redux';
+import { PostsExcerpt } from './PostsExcerpt';
+import { useEffect } from 'react';
+import {  
+    selectAllPosts, 
+    fetchPosts,
+    getPostsStatus,
+    getPostsError,
+     } from './postsSlice';
 
 
 export const PostsList = () => {
 
     const dispatch = useDispatch();
-
-    const posts = useSelector(selectAllPosts);
     
-    const content = posts.map((post) => ( 
-        <article  class="border-2 rounded-2xl border-slate-500" key={post.id}>
-            <h3 class="text-3xl mt-10 mb-2">{post.data.title}</h3>
-            <img src={post.data.thumbnail} alt={post.data.title} class="h-100 w-170"/>
-            <p class="mt-0.5">By: {post.data.author} <TimeAgo timestamp={post.date} /> </p>
-            <p>{post.data.selftext}</p>
-            <br/>
-            <div class="flex gap-2 justify-center items-center border-2 w-1/2 rounded-3xl">
-                <button class="border-2 rounded-3xl hover:cursor-pointer" onClick={() => dispatch(voteDecremented(post.id))}>-</button>
-                <p>Votes:{post.votes}</p>
-                <button class="border-2 rounded-3xl hover:cursor-pointer" onClick={() => dispatch(voteIncremented(post.id))}>+</button>
-            </div>
-            <br/>
-            <div>
-                <p class="text-2xl">{post.data.num_comments}</p>
-                <CommentsList post={post} />
-            </div>
-        </article>  
-))
+    const status = useSelector(getPostsStatus);
+    const error = useSelector(getPostsError);
+    const posts = useSelector(selectAllPosts);
+
+    useEffect(() => {
+        if (status === 'idle') {
+            dispatch(fetchPosts());
+        }
+    }, [status, dispatch]);
+    
+   let content;
+   if (status === 'loading') {
+        content = <p className="text-2xl">Loading...</p>
+    }
+    else if (status === 'succeeded') {
+        const orderedPosts = posts.slice().sort((a, b) => b.data.created_utc - a.data.created_utc);
+        content = orderedPosts.map((post) => (
+            <PostsExcerpt key={post.data.id} post={post} />
+        ))
+    }
+    else if (status === 'failed') {
+        content = <p>{error}</p>
+    }
 
     return (
         <section class="flex flex-col gap-4 justify-center items-center mt-10 ml-5 mb-10">
