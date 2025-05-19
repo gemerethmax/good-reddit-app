@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { NavLink } from 'react-router-dom';
 import BengalsLogo from '../../assets/img/Bengals_logo.png';
 import RedsLogo from '../../assets/img/Reds_logo.png';

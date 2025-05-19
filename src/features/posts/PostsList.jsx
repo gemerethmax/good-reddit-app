@@ -28,8 +28,8 @@ export const PostsList = () => {
         content = <p className="text-2xl">Loading...</p>
     }
     else if (status === 'succeeded') {
-        const orderedPosts = posts.slice().sort((a, b) => b.data.created_utc - a.data.created_utc);
-        content = orderedPosts.map((post) => (
+        // const orderedPosts = posts.slice().sort((a, b) => b.data.created_utc - a.data.created_utc);
+        content = posts.map((post) => (
             <PostsExcerpt key={post.data.id} post={post} />
         ))
     }

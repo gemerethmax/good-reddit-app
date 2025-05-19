@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const POSTS_URL = 'https://www.reddit.com/r/bengals.json';
+export const POSTS_URL = 'https://www.reddit.com/r/sports.json';
 
 const initialState = {
   posts: [],
@@ -19,20 +19,7 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
 const postsSlice = createSlice({
     name: 'posts',
     initialState,
-    reducers: {
-        voteIncremented: (state, action) => {
-          const post = state.posts.find(post => post.id === action.payload);
-          if (post) {
-            post.votes += 1;
-          }
-        },
-        voteDecremented: (state, action) => {
-          const post = state.posts.find(post => post.id === action.payload);
-          if (post) {
-            post.votes -= 1;
-          }
-        },
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
           .addCase(fetchPosts.pending, (state) => {
@@ -49,7 +36,8 @@ const postsSlice = createSlice({
       },
     });
 
-export const { voteIncremented, voteDecremented } = postsSlice.actions;
+
+
 
 export const selectAllPosts = (state) => state.posts.posts;
 export const getPostsStatus = (state) => state.posts.status;
