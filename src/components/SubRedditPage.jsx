@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { selectAllPosts, getPostsStatus, getPostsError } from "../features/posts/postsSlice";
 import { SubReddits } from "../features/posts/SubReddits";
-
 import { PostsExcerpt } from "../features/posts/PostsExcerpt";
 
 
