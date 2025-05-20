@@ -30,7 +30,7 @@ export const SubRedditPage = () => {
     if (status === 'loading') {
         content = <p className="text-2xl">Loading...</p>
     }
-    else if (status === 'succeeded' || status === 'done') {
+    else if (status === 'done') {
         const orderedPosts = posts.slice().sort((a, b) => b.data.created_utc - a.data.created_utc);
         content = orderedPosts.map((post) => (
             <PostsExcerpt key={post.data.id} post={post} />
