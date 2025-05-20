@@ -11,7 +11,6 @@ const initialState = {
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const response = await axios.get(POSTS_URL);
-  console.log(response.data.data.children)
   return response.data.data.children;
 }
 );
@@ -19,7 +18,6 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
 export const fetchPostsBySubReddit = createAsyncThunk('posts/fetchPostsBySubReddit', async (subReddit) => {
   const sub = subReddit.replace(/ /g, '+');
   const response = await axios.get(`https://www.reddit.com/r/${sub}.json`);
-  console.log(response.data.data.children)
   return response.data.data.children;
 }
 )

@@ -1,10 +1,10 @@
 import './App.css'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
-import { About } from './components/About'
-import { Contact } from './components/Contact'
+import { About } from './components/AboutPage'
+import { Contact } from './components/ContactPage'
 import { RootLayout } from './layout/RootLayout'
-import { HomeLayout } from './components/HomeLayout'
-import { NotFound } from './components/NotFound'
+import { HomeLayout } from './components/HomeLayoutPage'
+import { NotFound } from './components/NotFoundPage'
 import { SubRedditPage } from './components/SubRedditPage'
 
 const  App = () => {

@@ -9,7 +9,7 @@ const initialState = {
  }
 
 
-export const fetchComments = createAsyncThunk('comments/fetchComments', async (postId) => {
+export const fetchComments = createAsyncThunk('comments/fetchComments', async (postId,) => {
     const response = await axios.get(`https://www.reddit.com/r/pics/comments/${postId}.json`);
     return response.data[1].data.children;
 })
