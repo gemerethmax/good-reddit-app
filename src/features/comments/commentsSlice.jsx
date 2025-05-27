@@ -33,7 +33,7 @@ export const fetchComments = createAsyncThunk('comments/fetchComments', async (p
             })
             .addCase(fetchComments.fulfilled, (state, action) => {
                 state.status = "succeeded";
-                state.comments = action.payload;
+                state.comments = state.comments.concat(action.payload);
                 console.log(state.comments);
             })
             .addCase(fetchComments.rejected, (state, action) => {

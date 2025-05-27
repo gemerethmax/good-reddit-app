@@ -44,7 +44,7 @@ export const SubRedditPage = () => {
     return (
     <div class="flex flex-row gap-4 justify-center  mt-10 ml-5 mb-10"> 
         <div>
-            <h2>SubRedditPage</h2>
+            <h2>{subReddit} SubRedditPage</h2>
             <section class="flex flex-col gap-4 justify-center items-center mt-10 ml-5 mb-10">
                 <h2 class="text-4xl">Posts from {subReddit}</h2>
                 {content}
