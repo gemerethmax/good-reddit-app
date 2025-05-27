@@ -18,7 +18,7 @@ export const PostsList = () => {
     const posts = useSelector(selectAllPosts);
 
     useEffect(() => {
-        if (status === 'idle' || status === 'done') {
+        if (status === 'idle') {
             dispatch(fetchPosts());
         }
     }, [status, dispatch]);
