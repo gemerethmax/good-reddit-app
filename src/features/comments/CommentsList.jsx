@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchComments } from '../comments/commentsSlice';
 
+
 export const CommentsList = ({ post }) => {
 
         const dispatch = useDispatch();
@@ -14,7 +15,7 @@ export const CommentsList = ({ post }) => {
 
         const comments = useSelector(selectAllComments);
         
-        const renderedComments = comments.filter((comment) => 
+        const postComments = comments.filter((comment) => 
             comment.data.parent_id === `t3_${post.data.id}`).map((comment) => (
             <article class="border-2 rounded-3xl p-2 m-2" key={comment.data.id}>
                 <p>{comment.data.body}</p>
@@ -25,11 +26,16 @@ export const CommentsList = ({ post }) => {
 
         const [comment, setComment] = useState('');
 
+        const [count, setCount] = useState(0);
+
+        let renderedComments = postComments.slice(0, count + 5);
+
         return (
             <> 
                 <div class="ml-auto mr-auto mb-5 w-1/2 ">
                     <h3 class="text-2xl">{post.data.num_comments} Comments:</h3>
                     <div class="mt-2">{renderedComments}</div>
+                    <button class="border-2 rounded-3xl hover:cursor-pointer" onClick={() => {setCount(count + 5)}}>Show more comments</button>
                 </div>
                 <div>
                 <label class="text-2xl text-emerald-300"htmlFor="comment">Add a comment:  </label>
