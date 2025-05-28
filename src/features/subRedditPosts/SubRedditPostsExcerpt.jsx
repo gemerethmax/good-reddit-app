@@ -1,6 +1,6 @@
 import React from 'react'
 import { TimeAgo } from '../posts/TimeAgo';
-import { SubRedditCommentsList } from '../subredditComments/subRedditCommentsList';
+import { SubRedditCommentsList } from '../subredditComments/SubRedditCommentsList.jsx';
 
 
 export const SubRedditPostsExcerpt = ({ post, subReddit }) => {
