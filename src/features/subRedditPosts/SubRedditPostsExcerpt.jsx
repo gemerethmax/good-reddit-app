@@ -5,6 +5,7 @@ import { SubRedditCommentsList } from '../subredditComments/SubRedditCommentsLis
 
 export const SubRedditPostsExcerpt = ({ post, subReddit }) => {
 
+    
   
     
   return (
