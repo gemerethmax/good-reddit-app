@@ -43,7 +43,7 @@ const postsSlice = createSlice({
             state.status = 'loading';
           })
           .addCase(fetchPostsBySubReddit.fulfilled, (state, action) => {
-            state.status = 'done';
+            state.status = 'succeeded';
             state.posts = action.payload
             
           })

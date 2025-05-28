@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { selectAllPosts, getPostsStatus, getPostsError } from "../features/posts/postsSlice";
 import { SubReddits } from "../features/posts/SubReddits";
-import { PostsExcerpt } from "../features/posts/PostsExcerpt";
+import { SubRedditPostsExcerpt } from "../features/subRedditPosts/SubRedditPostsExcerpt";
 
 
 export const SubRedditPage = () => {
@@ -29,10 +29,10 @@ export const SubRedditPage = () => {
     if (status === 'loading') {
         content = <p className="text-2xl">Loading...</p>
     }
-    else if (status === 'done') {
+    else if (status === 'succeeded') {
         const orderedPosts = posts.slice().sort((a, b) => b.data.created_utc - a.data.created_utc);
         content = orderedPosts.map((post) => (
-            <PostsExcerpt key={post.data.id} post={post} />
+            <SubRedditPostsExcerpt key={post.data.id} post={post} subReddit={subReddit} />
         ))
     }
     else if (status === 'failed') {
