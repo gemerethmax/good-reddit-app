@@ -37,7 +37,7 @@ export const fetchSubRedditComments = createAsyncThunk('comments/fetchComments',
                     state.loadedPostIds.push(postId);
                 }
                 state.status = "succeeded";
-                state.comments = action.payload;
+                state.comments = state.comments.concat(action.payload);
                 console.log(state.comments);
             })
             .addCase(fetchSubRedditComments.rejected, (state, action) => {

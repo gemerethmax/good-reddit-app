@@ -21,6 +21,7 @@ export const SubRedditPage = () => {
     
 
     useEffect(() => {
+
         dispatch(fetchPostsBySubReddit(subReddit));
     }
     , [subReddit, dispatch]);
@@ -29,7 +30,7 @@ export const SubRedditPage = () => {
     if (status === 'loading') {
         content = <p className="text-2xl">Loading...</p>
     }
-    else if (status === 'succeeded') {
+    else if (status === 'done') {
         const orderedPosts = posts.slice().sort((a, b) => b.data.created_utc - a.data.created_utc);
         content = orderedPosts.map((post) => (
             <SubRedditPostsExcerpt key={post.data.id} post={post} subReddit={subReddit} />

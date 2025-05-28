@@ -18,7 +18,7 @@ export const PostsList = () => {
     const posts = useSelector(selectAllPosts);
 
     useEffect(() => {
-        if (status === 'idle') {
+        if (status === 'idle' || status === 'done') {
             dispatch(fetchPosts());
         }
     }, [status, dispatch]);
@@ -38,8 +38,8 @@ export const PostsList = () => {
     }
 
     return (
-        <section class="flex flex-col gap-4 justify-center items-center mt-10 ml-5 mb-10">
-            <h2 class="text-4xl">POPULAR POSTS</h2>
+        <section class="w-3/4 ml-5 mt-10">
+            <h2 class="text-4xl justify-self-center ">POPULAR POSTS</h2>
             {content}
         </section>
     )

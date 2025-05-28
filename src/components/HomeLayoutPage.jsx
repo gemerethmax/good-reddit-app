@@ -8,12 +8,14 @@ export const HomeLayout = () => {
    
 
     return (
-        <div class="flex flex-col items-center">
-            <div class="flex mt-10 ml-5 mb-10">
-                <PostsList class="w-3/5"/>
-                <SubReddits/>
+        <div class="w-full flex">
+            <div class="w-3/5">
+                <PostsList />
             </div>
-                <Outlet />
+            <div class="">
+                <SubReddits />
+            </div>
+            <Outlet />
         </div>
     )
 }

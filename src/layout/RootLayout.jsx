@@ -7,7 +7,7 @@ export const RootLayout = () => {
     return (
         <div>
             <NavBar />
-            <div className="container">
+            <div class="w-full" >
                 <Outlet />
             </div>
         </div>

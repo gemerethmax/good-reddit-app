@@ -27,7 +27,7 @@ export const CommentsList = ({ post }) => {
 
         return (
             <> 
-                <div class="ml-auto mr-auto mt-10 mb-5 w-1/2 ">
+                <div class="ml-auto mr-auto mb-5 w-1/2 ">
                     <h3 class="text-2xl">{post.data.num_comments} Comments:</h3>
                     <div class="mt-2">{renderedComments}</div>
                 </div>
