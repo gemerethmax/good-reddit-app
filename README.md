@@ -59,7 +59,7 @@ Browse posts, read and add comments, explore curated subreddits, and enjoy a cle
   store/               # Redux store setup
   App.jsx              # Main app component
   main.jsx             # Entry point
-
+```
 
   
 ## About
