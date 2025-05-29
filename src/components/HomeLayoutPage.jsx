@@ -12,7 +12,7 @@ export const HomeLayout = () => {
             <div class="w-3/5">
                 <PostsList />
             </div>
-            <div class="">
+            <div>
                 <SubReddits />
             </div>
             <Outlet />

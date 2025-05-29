@@ -1,4 +1,4 @@
-import { selectAllSubRedditComments, commentAdded } from './subRedditCommentsSlice';
+import { selectAllSubRedditComments, subRedditCommentAdded } from './subRedditCommentsSlice';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchSubRedditComments } from './subRedditCommentsSlice.jsx';
@@ -41,7 +41,17 @@ export const SubRedditCommentsList = ({ post, subReddit }) => {
                 <label class="text-2xl text-emerald-300"htmlFor="comment">Add a comment:  </label>
                     <input class="border-2 rounded-2xl" type="text" placeholder=" ..." id="comment" value={comment} onChange={(e) => setComment(e.target.value)}/>
                     <button class="border-2 rounded-xl hover:cursor-pointer" onClick={() => {
-                            dispatch(commentAdded({id: comments.length + 1, postId: post.data.id, content: comment}));
+                            dispatch(subRedditCommentAdded({
+                                            kind: "t1",
+                                            data: {
+                                                id: String(comments.length + 1),
+                                                parent_id: `t3_${post.data.id}`,
+                                                body: comment,
+                                                author: "You",
+                                                }
+                                            }
+                                
+                            ));
                             setComment('');
                         }}> Submit </button>
                 </div>

@@ -34,7 +34,7 @@ export const PostsList = () => {
         ))
     }
     else if (status === 'failed') {
-        content = <p>{error}</p>
+        content = <p>{error}. Reddit's free API data limit met.</p>
     }
 
     return (

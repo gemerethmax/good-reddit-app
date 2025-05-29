@@ -21,7 +21,7 @@ export const fetchSubRedditComments = createAsyncThunk('comments/fetchComments',
     name: "subRedditComments",
     initialState,
     reducers: {
-        commentAdded: (state, action) => {
+        subRedditCommentAdded: (state, action) => {
             state.comments.push(action.payload);
         },
         
@@ -55,4 +55,4 @@ export const selectAllSubRedditComments = (state) => state.subRedditComments.com
 export const getSubRedditCommentsStatus = (state) => state.subRedditComments.status;
 export const getSubRedditsCommentsError = (state) => state.subRedditComments.error;
 
-export const { commentAdded } = subReddditCommentsSlice.actions;
+export const { subRedditCommentAdded } = subReddditCommentsSlice.actions;
