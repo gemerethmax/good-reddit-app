@@ -35,12 +35,12 @@ export const CommentsList = ({ post }) => {
                 <div class="ml-auto mr-auto mb-5 w-1/2 ">
                     <h3 class="text-2xl">{post.data.num_comments} Comments:</h3>
                     <div class="mt-2">{renderedComments}</div>
-                    <button class="border-2 rounded-3xl hover:cursor-pointer" onClick={() => {setCount(count + 5)}}>Show more comments</button>
+                    <button class="border-2 rounded-3xl hover:cursor-pointer p-1" onClick={() => {setCount(count + 5)}}>Show more comments</button>
                 </div>
                 <div class="ml-auto mr-auto mb-5 w-1/2 flex items-center">
-                <label class="ml-2 text-2xl text-emerald-300"htmlFor="comment">Add a comment:  </label>
-                    <input class="border-2 rounded-2xl" type="text" placeholder=" ..." id="comment" value={comment} onChange={(e) => setComment(e.target.value)}/>
-                    <button class="border-2 rounded-xl hover:cursor-pointer" onClick={() => {
+                <label class="ml-2 text-2xl text-emerald-300"htmlFor="comment">Add a comment   </label>
+                    <input class="ml-1 border-2 rounded-2xl" type="text" placeholder=" ..." id="comment" value={comment} onChange={(e) => setComment(e.target.value)}/>
+                    <button class="border-2 rounded-xl hover:cursor-pointer p-1" onClick={() => {
                                              dispatch(commentAdded({
                                             kind: "t1",
                                             data: {

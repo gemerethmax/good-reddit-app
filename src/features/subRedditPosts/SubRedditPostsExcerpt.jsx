@@ -11,16 +11,13 @@ export const SubRedditPostsExcerpt = ({ post, subReddit }) => {
     const handleVote = (direction) => {
         if (vote === direction) {
             setVote(null); 
-        } else {
-            setVote(direction); 
-        }
-    }
-    const handleDownVote = () => {
-        handleVote('down');
-    }
-    const handleUpVote = () => {
-        handleVote('up');
-    }
+        } else {setVote(direction)}}
+    
+        const handleDownVote = () => {
+        handleVote('down') }
+
+        const handleUpVote = () => {
+        handleVote('up')}
     
     
   return (

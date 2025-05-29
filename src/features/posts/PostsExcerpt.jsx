@@ -13,10 +13,7 @@ export const PostsExcerpt = ({ post }) => {
          const handleVote = (direction) => {
                     if (vote === direction) {
                         setVote(null); 
-                    } else {
-                        setVote(direction); 
-                    }
-                    }
+                        } else {setVote(direction)}}
 
                     const handleDownVote = () => {
                         handleVote('down');
