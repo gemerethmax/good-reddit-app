@@ -37,8 +37,8 @@ export const CommentsList = ({ post }) => {
                     <div class="mt-2">{renderedComments}</div>
                     <button class="border-2 rounded-3xl hover:cursor-pointer" onClick={() => {setCount(count + 5)}}>Show more comments</button>
                 </div>
-                <div>
-                <label class="text-2xl text-emerald-300"htmlFor="comment">Add a comment:  </label>
+                <div class="ml-auto mr-auto mb-5 w-1/2 flex items-center">
+                <label class="ml-2 text-2xl text-emerald-300"htmlFor="comment">Add a comment:  </label>
                     <input class="border-2 rounded-2xl" type="text" placeholder=" ..." id="comment" value={comment} onChange={(e) => setComment(e.target.value)}/>
                     <button class="border-2 rounded-xl hover:cursor-pointer" onClick={() => {
                                              dispatch(commentAdded({

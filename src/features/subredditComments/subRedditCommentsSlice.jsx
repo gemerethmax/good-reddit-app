@@ -22,7 +22,7 @@ export const fetchSubRedditComments = createAsyncThunk('comments/fetchComments',
     initialState,
     reducers: {
         subRedditCommentAdded: (state, action) => {
-            state.comments.push(action.payload);
+            state.comments.unshift(action.payload);
         },
         
     },

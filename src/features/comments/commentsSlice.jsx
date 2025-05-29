@@ -22,7 +22,7 @@ export const fetchComments = createAsyncThunk('comments/fetchComments', async (p
     initialState,
     reducers: {
         commentAdded: (state, action) => {
-            state.comments.push(action.payload);
+            state.comments.unshift(action.payload);
         },
         
     },
